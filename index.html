@@ -15,5 +15,6 @@ function progress(){setNav("progress");document.getElementById("routineTabs").in
 function settings(){setNav("settings");document.getElementById("routineTabs").innerHTML="";document.getElementById("main").innerHTML='<section class="panel"><div class="title">⚙️ Settings</div><p>JY WORKOUT · Pink Theme</p><p class="muted">Your workout data is stored on this device.</p></section>'}
 function setNav(p){var n=document.getElementsByClassName("nav"),i;for(i=0;i<n.length;i++)n[i].className="nav"+(n[i].getAttribute("data-page")===p?" on":"")}
 var nav=document.getElementsByClassName("nav"),i;for(i=0;i<nav.length;i++)nav[i].onclick=function(){var p=this.getAttribute("data-page");if(p==="home")home();else if(p==="calendar")calendar();else if(p==="progress")progress();else settings()};
-var now=new Date();document.getElementById("date").innerHTML="📅 "+now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now.getDate());home();
+function boot(){try{var now=new Date();document.getElementById("date").innerHTML="📅 "+now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now.getDate());home();}catch(e){document.getElementById("main").innerHTML='<section class="panel"><div class="title">APP ERROR</div><div class="muted">'+String(e.message||e)+'</div></section>';}}
+boot();
 </script></body></html>
