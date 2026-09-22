@@ -113,6 +113,17 @@
  .row>.dn{grid-column:6!important;width:22px!important;height:22px!important;margin:auto!important}
  .row>.field{height:36px!important;padding:2px!important;font-size:12px!important;text-align:center!important}
 }
+
+@media(max-width:600px){
+ .row>.exercise>.exart{
+   width:78px!important;height:72px!important;min-width:78px!important;max-width:78px!important;
+   object-fit:contain!important;object-position:center!important;
+   background:#fff8f7!important;border-radius:10px!important
+ }
+ .row>.exercise{grid-template-columns:78px minmax(0,1fr)!important;gap:8px!important}
+ .row>.exercise>.extext{font-size:12.5px!important;line-height:1.16!important}
+ .row{min-height:90px!important}
+}
 </style></head><body><div class="app"><div class="top"><div><div class="brand">JY WORKOUT <span style="display:inline-flex;width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#ffb1c8,#ff5d8f);color:white;align-items:center;justify-content:center;font-size:19px;vertical-align:middle">♥</span></div><div class="cons">CONSISTENCY</div></div><div id="date" class="date"></div></div><div class="motto">Small wins, every single day.</div><div class="cats"><button class="pill cat" data-cat="Today">⌂ Today</button><button class="pill cat" data-cat="Upper">🏋🏻‍♀️ Upper</button><button class="pill cat on" data-cat="Lower">🍑 Lower</button><button class="pill cat" data-cat="Core">🪷 Core</button><button class="pill cat" data-cat="Rest">🍃 Rest</button><button class="pill cat" data-cat="More">••• More</button></div><div id="routineTabs" class="routines"></div><main id="main"></main></div><div class="bottom"><div class="nav on" data-page="home"><b class="ico homeico">♥</b>Home</div><div class="nav" data-page="calendar"><b class="ico calico">▦</b>Calendar</div><div class="nav" data-page="progress"><b class="ico progico">▥</b>Progress</div><div class="nav" data-page="settings"><b class="ico setico">⚙</b>Settings</div></div><script>
 var routines={"Dumbbell Lower A":[["🍑","Hip Thrust",4,"10-12"],["🦵","Leg Press",4,"10-12"],["🏋️‍♀️","V-Squat",4,"10-12"],["🦵","Bulgarian Split Squat",3,"10 each"],["🏋️","Romanian Deadlift (RDL)",4,"10-12"],["⚖️","Single-Leg RDL",3,"10 each"],["🪜","Dumbbell Step-Up",3,"10 each"],["🏋️‍♀️","Kettlebell Wide Squat",4,"10-12"],["🏋️‍♀️","Dumbbell Pause Squat",3,"10-12"],["🦵","Dumbbell Reverse Lunge",3,"10 each"]],"Dumbbell Lower B":[["🦵","Dumbbell Squat",3,"8-12"],["🦵","Dumbbell Sumo Squat",3,"10-12"],["⚖️","Single-Leg RDL",3,"10 each"],["🍑","Dumbbell Glute Bridge",3,"12-15"],["🦵","Dumbbell Walking Lunge",2,"10 each"]],"Machine Lower A":[["🦵","Leg Press",3,"8-12"],["🦵","Leg Curl",3,"10-12"],["🦵","Leg Extension",3,"10-12"],["🍑","Hip Press",3,"10-15"],["🍑","Hip Abduction",3,"12-15"]],"Machine Lower B":[["🍑","Monster Glute Machine",3,"10-15"],["🦵","Leg Press",3,"8-12"],["🍑","Hip Adduction",3,"12-15"],["🍑","Standing Hip Abduction",3,"10-15"],["🦵","Seated Leg Curl",3,"10-12"]]};
 routines["Dumbbell Upper A"]=[["♡","Dumbbell Bench Press",3,"8-12"],["♡","One-Arm Dumbbell Row",3,"8-12"],["♡","Dumbbell Shoulder Press",3,"8-12"],["♡","Dumbbell Lateral Raise",3,"12-15"],["♡","Dumbbell Curl",2,"10-12"]];
@@ -126,11 +137,11 @@ routines["Core"]=[
 ["✦","Cable Rotation",2,"15 each"],
 ["✦","Kettlebell Side Bend",3,"15 each"],
 ["✦","Kettlebell Around the World",2,"15 each"],
-["✦","Reverse Crunch",2,"100 + 50"],
+["✦","Reverse Crunch",3,"15"],
 ["✦","Leg Raise",3,"15"],
 ["✦","HS Abs Crunch",3,"15"],
 ["✦","Hyperextension",3,"10"],
-["✦","Hanging Leg Raise",2,"50 sec + 30 sec"],
+["✦","Hanging Leg Raise",3,"50 sec + 30 sec"],
 ["✦","Chin Up",3,"10"]
 ]
 var coreTips=["Resist rotation; keep your core tight.","Pull from high to low and brace your core.","Pull from low to high with control.","Rotate slowly and keep your torso controlled.","Feel the side stretch and return slowly.","Brace your core and move the kettlebell in a large circle.","Curl your pelvis up and squeeze at the top.","Keep your lower back controlled as you raise your legs.","30 lb · seat length 1 visible · 45° angle.","Lift higher than you think and squeeze your glutes at the top.","Hang for 50 sec, then 30 sec.","Pull up with control."];var coreIcons=["↔","↘","↗","⟳","◒","⟲","⌃","↑","ABS","45°","▥","⇧"];var current="Dumbbell Lower A",activeCat="Lower",page="home",db={};try{db=JSON.parse(localStorage.getItem("jydb")||"{}")||{}}catch(e){db={}}
