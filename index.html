@@ -21,7 +21,20 @@ routines["Dumbbell Upper A"]=[["♡","Dumbbell Bench Press",3,"8-12"],["♡","On
 routines["Dumbbell Upper B"]=[["♡","Incline Dumbbell Press",3,"8-12"],["♡","Dumbbell Row",3,"8-12"],["♡","Dumbbell Arnold Press",3,"8-12"],["♡","Dumbbell Rear Delt Fly",3,"12-15"],["♡","Hammer Curl",2,"10-12"]];
 routines["Machine Upper A"]=[["♡","Lat Pulldown",3,"8-12"],["♡","Seated Row",3,"8-12"],["♡","Chest Press",3,"8-12"],["♡","Shoulder Press",3,"8-12"],["♡","Rear Delt Fly",3,"12-15"]];
 routines["Machine Upper B"]=[["♡","Front Pulldown",3,"8-12"],["♡","Lever Row",3,"8-12"],["♡","Wide-Grip Pulldown",3,"8-12"],["♡","Rear Delt Fly",3,"12-15"],["♡","Dips",3,"8-12"]];
-routines["Core"]=[["✦","Hanging Leg Raise",3,"8-12"],["✦","Reverse Crunch",3,"10-15"],["✦","Pallof Press",3,"10-12"],["✦","Cable Wood Chop",3,"10-12"],["✦","Back Extension",3,"10-15"]];
+routines["Core"]=[
+["✦","HS Abs Crunch",3,"15"],
+["✦","Hyper Extension",3,"10"],
+["✦","Vertical Dumbbell Crunch",3,"15"],
+["✦","Reverse Crunch",1,"100 + 50"],
+["✦","Kettlebell Side Bend",3,"15 each"],
+["✦","Kettlebell Around the World",2,"15 each"],
+["✦","Hanging Leg Raise",3,"15"],
+["✦","Leg Raise",3,"15"],
+["✦","Cable Pallof Press",2,"15 each"],
+["✦","Cable High Woodchopper",2,"15 each"],
+["✦","Cable Low Woodchopper",2,"10 each"],
+["✦","Cable Rotation",2,"15 each"]
+];
 var current="Dumbbell Lower A",activeCat="Lower",page="home",db={};try{db=JSON.parse(localStorage.getItem("jydb")||"{}")||{}}catch(e){db={}}
 function persist(){localStorage.setItem("jydb",JSON.stringify(db))}
 function key(i){return current+"|"+i}function record(i){if(!db[key(i)])db[key(i)]={weights:[],done:false};return db[key(i)]}
