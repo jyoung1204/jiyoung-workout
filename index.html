@@ -20,6 +20,20 @@
 .exercise{align-items:center;overflow:visible}.extext{white-space:normal!important;overflow:visible!important;word-break:normal;overflow-wrap:anywhere;line-height:1.22!important}
 .field{padding:8px 1px!important;font-size:13px!important}.wt{max-width:48px}.st{max-width:36px}.rp{max-width:42px}.done{width:22px!important;height:22px!important;margin:auto}
 @media(max-width:480px){.exart{width:62px!important;height:52px!important;flex-basis:62px!important}.coreart{width:62px!important;height:52px!important;flex-basis:62px!important}.coreart small{display:none}.exercise{gap:4px}.extext{font-size:11px!important}.field{font-size:12px!important;padding:7px 0!important}.thead{font-size:9px!important}}
+
+@media(max-width:480px){
+ .thead,.row{grid-template-columns:26px minmax(128px,1fr) 40px 29px 36px 27px!important;gap:3px!important;align-items:center!important}
+ .row{padding:8px 2px!important}
+ .exercise{display:flex!important;flex-direction:row!important;align-items:center!important;gap:4px!important;min-width:0!important}
+ .exart{width:52px!important;height:44px!important;flex:0 0 52px!important}
+ .coreart{width:52px!important;height:44px!important;flex:0 0 52px!important}
+ .extext{font-size:10.5px!important;line-height:1.08!important;min-width:0!important;overflow-wrap:normal!important;word-break:normal!important}
+ .extext .muted{font-size:9px!important}
+ .field{width:100%!important;min-width:0!important;padding:6px 0!important;font-size:11px!important}
+ .wt{max-width:40px!important}.st{max-width:29px!important}.rp{max-width:36px!important}
+ .done{width:20px!important;height:20px!important}
+ .thead>div{font-size:8px!important}
+}
 </style></head><body><div class="app"><div class="top"><div><div class="brand">JY WORKOUT <span style="display:inline-flex;width:34px;height:34px;border-radius:11px;background:linear-gradient(145deg,#ffb1c8,#ff5d8f);color:white;align-items:center;justify-content:center;font-size:19px;vertical-align:middle">♥</span></div><div class="cons">CONSISTENCY</div></div><div id="date" class="date"></div></div><div class="motto">Small wins, every single day.</div><div class="cats"><button class="pill cat" data-cat="Today">⌂ Today</button><button class="pill cat" data-cat="Upper">🏋🏻‍♀️ Upper</button><button class="pill cat on" data-cat="Lower">🍑 Lower</button><button class="pill cat" data-cat="Core">🪷 Core</button><button class="pill cat" data-cat="Rest">🍃 Rest</button><button class="pill cat" data-cat="More">••• More</button></div><div id="routineTabs" class="routines"></div><main id="main"></main></div><div class="bottom"><div class="nav on" data-page="home"><b class="ico homeico">♥</b>Home</div><div class="nav" data-page="calendar"><b class="ico calico">▦</b>Calendar</div><div class="nav" data-page="progress"><b class="ico progico">▥</b>Progress</div><div class="nav" data-page="settings"><b class="ico setico">⚙</b>Settings</div></div><script>
 var routines={"Dumbbell Lower A":[["🍑","Hip Thrust",4,"10-12"],["🦵","Leg Press",4,"10-12"],["🏋️‍♀️","V-Squat",4,"10-12"],["🦵","Bulgarian Split Squat",3,"10 each"],["🏋️","Romanian Deadlift (RDL)",4,"10-12"],["⚖️","Single-Leg RDL",3,"10 each"],["🪜","Dumbbell Step-Up",3,"10 each"],["🏋️‍♀️","Kettlebell Wide Squat",4,"10-12"],["🏋️‍♀️","Dumbbell Pause Squat",3,"10-12"],["🦵","Dumbbell Reverse Lunge",3,"10 each"]],"Dumbbell Lower B":[["🦵","Dumbbell Squat",3,"8-12"],["🦵","Dumbbell Sumo Squat",3,"10-12"],["⚖️","Single-Leg RDL",3,"10 each"],["🍑","Dumbbell Glute Bridge",3,"12-15"],["🦵","Dumbbell Walking Lunge",2,"10 each"]],"Machine Lower A":[["🦵","Leg Press",3,"8-12"],["🦵","Leg Curl",3,"10-12"],["🦵","Leg Extension",3,"10-12"],["🍑","Hip Press",3,"10-15"],["🍑","Hip Abduction",3,"12-15"]],"Machine Lower B":[["🍑","Monster Glute Machine",3,"10-15"],["🦵","Leg Press",3,"8-12"],["🍑","Hip Adduction",3,"12-15"],["🍑","Standing Hip Abduction",3,"10-15"],["🦵","Seated Leg Curl",3,"10-12"]]};
 routines["Dumbbell Upper A"]=[["♡","Dumbbell Bench Press",3,"8-12"],["♡","One-Arm Dumbbell Row",3,"8-12"],["♡","Dumbbell Shoulder Press",3,"8-12"],["♡","Dumbbell Lateral Raise",3,"12-15"],["♡","Dumbbell Curl",2,"10-12"]];
