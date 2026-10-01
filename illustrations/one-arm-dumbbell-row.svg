@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" role="img"><title>Exercise illustration</title><defs>
+<linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fffafd"/><stop offset="1" stop-color="#fff1f6"/></linearGradient>
+<linearGradient id="skin" x2="0" y2="1"><stop stop-color="#f7d0bb"/><stop offset="1" stop-color="#df9f83"/></linearGradient>
+<linearGradient id="shirt" x2="0" y2="1"><stop stop-color="#f69abd"/><stop offset="1" stop-color="#d9487c"/></linearGradient>
+<linearGradient id="pants" x2="0" y2="1"><stop stop-color="#59404f"/><stop offset="1" stop-color="#352936"/></linearGradient>
+</defs>
+<style>
+.bg{fill:url(#bg)}.floor{stroke:#e7d9df;stroke-width:1.5}.shadow{fill:#e7cbd5;opacity:.55}
+.equip{fill:#d6d0d5;stroke:#83757d;stroke-width:2;stroke-linejoin:round}.dumbbell{fill:none;stroke:#6f626a;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.leg{fill:none;stroke:#382d38;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}.legskin{fill:none;stroke:url(#pants);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.arm{fill:none;stroke:#6d4c48;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.armSkin{fill:none;stroke:url(#skin);stroke-width:6.5;stroke-linecap:round;stroke-linejoin:round}
+.top{fill:url(#shirt);stroke:#a83d69;stroke-width:1.5;stroke-linejoin:round}.shorts{fill:#bd4772;stroke:#8d3658;stroke-width:1.5;stroke-linejoin:round}
+.shoe{fill:#fff;stroke:#9b4566;stroke-width:2;stroke-linejoin:round}.head{fill:url(#skin);stroke:#956454;stroke-width:1.2}.hair{fill:#49333b;stroke:#49333b;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}.face{stroke:#66464b;stroke-width:1.5;stroke-linecap:round}
+.kettle{fill:#626069;stroke:#3f3c43;stroke-width:1.6}
+</style><rect class="bg" width="120" height="100" rx="16"/><path class="floor" d="M12 89h96"/><ellipse class="shadow" cx="60" cy="89" rx="28" ry="3"/>
+<path class="equip" d="M25 59h36v5H25zM31 64v23m24-23v23" />
+<path class="leg" d="M61 52 74 65 79 82M50 53 43 67 36 82"/><path class="legskin" d="M61 52 74 65 79 82M50 53 43 67 36 82"/>
+<path class="shoe" d="M74 80q8-2 12 2l-1 4H72zM29 80q8-2 12 2l-1 4H27z"/>
+<path class="top" d="M43 35q11-7 23-1l4 16-17 8-14-7z"/>
+<path class="shorts" d="M45 50q12 6 24 0l1 9-12 4-6-7-7 8-8-6z"/>
+<path class="arm" d="M45 39 36 53 32 61"/><path class="armSkin" d="M45 39 36 53 32 61"/>
+<path class="arm" d="M66 39 73 48 82 44"/><path class="armSkin" d="M66 39 73 48 82 44"/>
+<path class="dumbbell" d="M78 39v10m-4-8v6m0-3h8"/>
+<ellipse class="head" cx="38" cy="29" rx="8" ry="9"/><path class="hair" d="M30 29q-3-13 9-14 13 1 7 15l-4-9-9 1-3 8zM45 25q8 6 3 16l-6-4z"/><path class="face" d="M40 29h.5"/>
+</svg>
