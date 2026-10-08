@@ -228,6 +228,27 @@ function key(i){return "routine-v2|"+current+"|"+normalExercise(routines[current
 function migrateProgram(){if(db["migration|program-20260930"])return;Object.keys(routines).forEach(function(k){var before=legacyRoutines[k]||legacyRoutines[k.indexOf("Core")===0?"Core":k]||[];routines[k].forEach(function(e,i){var j=before.findIndex(function(o){return normalExercise(o[1])===normalExercise(e[1])});if(j>=0&&db[(k.indexOf("Core")===0?"Core":k)+"|"+j]){var saved=JSON.parse(JSON.stringify(db[(k.indexOf("Core")===0?"Core":k)+"|"+j]));saved.done=false;delete saved.sets;db["routine-v2|"+k+"|"+normalExercise(e[1])]=saved}})});db["migration|program-20260930"]=true;persist()}
 migrateProgram();
 
+var lowerMachineSources=["Machine Lower A","Machine Lower B"];
+routines["Machine Lower"]=[["🍑","Hip Thrust Machine",4,"6–10"],["🍑","V-Squat Machine",3,"6–10"],["🍑","Leg Press",3,"8–12"],["🍑","Seated Leg Curl",3,"8–12"],["🍑","Glute Press",3,"10–12"],["🍑","Hip Abduction",2,"12–15"],["🦵","Leg Extension",3,"12–15"],["🦵","Lying Leg Curl",3,"12–15"],["🍑","Glute Kickback",3,"12–15 each"],["🍑","Standing Hip Abduction",3,"15–20 each"],["🍑","Hip Adduction",2,"15–20"],["✦","45° Hyperextension",2,"12–15"],["✦","Hanging",2,"20–30 sec"]];
+routineFocus["Machine Lower"]="Strength · Hypertrophy";
+function migrateLowerMachine(){
+ var flag="migration|lower-machine-20261008";if(db[flag])return;
+ routines["Machine Lower"].forEach(function(ex){
+  var name=normalExercise(ex[1]),target="routine-v2|Machine Lower|"+name;
+  if(db[target])return;
+  var candidates=lowerMachineSources.map(function(k){return db["routine-v2|"+k+"|"+name]}).filter(Boolean),saved={};
+  candidates.forEach(function(r){["weight","reps","sets"].forEach(function(k){if((saved[k]===undefined||saved[k]==="")&&r[k]!==undefined&&r[k]!=="")saved[k]=r[k]});saved.done=saved.done||!!r.done});
+  if(candidates.length)db[target]=saved;
+ });
+ if(!db["note|Machine Lower"]){
+  var notes=lowerMachineSources.map(function(k){return db["note|"+k]?k+"\n"+db["note|"+k]:""}).filter(Boolean);
+  if(notes.length)db["note|Machine Lower"]=notes.join("\n\n");
+ }
+ db[flag]=true;persist();
+}
+migrateLowerMachine();
+lowerMachineSources.forEach(function(k){delete routines[k];delete routineFocus[k]});
+
 var upperMachineSources=["Machine Upper A","Machine Upper B"];
 routines["Upper Machine"]=[["♡","HS Front Pulldown",3,"8"],["♡","Lat Pulldown",3,"8"],["♡","MTS Row",3,"8"],["♡","Seated Row",3,"8"],["♡","Linear Row",3,"8"],["♡","Chest Press",3,"8"],["♡","HS Shoulder Press",3,"8"],["♡","Dips",3,"8"],["♡","Rear Deltoid Fly",3,"8"],["♡","Pec Fly",3,"8"],["♡","Biceps Curl",3,"8"],["♡","Triceps Extension",3,"8"],["♡","HS Abs Crunch",3,"8"],["♡","Hyperextension",3,"8"],["♡","Weight Lifting",3,"8"],["♡","Reverse Crunch",3,"8"],["♡","Leg Raise",3,"8"],["✦","Hanging",2,"20–30 sec"],["♡","Easy Cardio",1,"15–25 min","cardio"]];
 routineFocus["Upper Machine"]="Strength · Hypertrophy";
@@ -284,6 +305,6 @@ function progress(){page="progress";document.getElementById("workoutDatePanel").
 function settings(){page="settings";document.getElementById("workoutDatePanel").style.display="none";setNav("settings");document.getElementById("routineTabs").innerHTML="";document.getElementById("main").innerHTML='<section class="panel"><div class="title">⚙️ Settings</div><p>왕빵궁둥이 · Pink Theme</p><p class="muted">Your workout data is stored on this device.</p></section>'}
 function setNav(p){var n=document.getElementsByClassName("nav"),i;for(i=0;i<n.length;i++)n[i].className="nav"+(n[i].getAttribute("data-page")===p?" on":"")}
 var cats=document.getElementsByClassName("cat"),ci;for(ci=0;ci<cats.length;ci++)cats[ci].onclick=function(){var c=this.getAttribute("data-cat");setCat(c);if(page==="home"){if(c==="Upper")current="Dumbbell Upper A";else if(c==="Lower")current="Dumbbell Lower";else if(c==="Core")current="Core A";else if(c==="Rest"){var d=dateKey(new Date());if(!db.sessions)db.sessions={};db.sessions[d]={routine:"Rest",category:"Rest",time:new Date().getTime()};persist();alert("Rest day saved! 🍃");activeCat="Today"}home()}else if(page==="calendar")calendar();else if(page==="progress")progress()};var nav=document.getElementsByClassName("nav"),i;for(i=0;i<nav.length;i++)nav[i].onclick=function(){var p=this.getAttribute("data-page");if(p==="home")home();else if(p==="calendar")calendar();else if(p==="progress")progress();else settings()};
-function boot(){try{var workoutDateInput=document.getElementById("workoutDate");workoutDateInput.value=selectedWorkoutDate;workoutDateInput.max=dateKey(new Date());var requested=new URLSearchParams(location.search).get("routine");if(upperMachineSources.indexOf(requested)>=0)requested="Upper Machine";if(requested&&routines[requested]){current=requested;activeCat=categoryOf(requested)}var now=new Date();document.getElementById("date").innerHTML="📅 "+now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now.getDate());home();}catch(e){document.getElementById("main").innerHTML='<section class="panel"><div class="title">APP ERROR</div><div class="muted">'+String(e.message||e)+'</div></section>';}}
+function boot(){try{var workoutDateInput=document.getElementById("workoutDate");workoutDateInput.value=selectedWorkoutDate;workoutDateInput.max=dateKey(new Date());var requested=new URLSearchParams(location.search).get("routine");if(lowerMachineSources.indexOf(requested)>=0)requested="Machine Lower";if(upperMachineSources.indexOf(requested)>=0)requested="Upper Machine";if(requested&&routines[requested]){current=requested;activeCat=categoryOf(requested)}var now=new Date();document.getElementById("date").innerHTML="📅 "+now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now.getDate());home();}catch(e){document.getElementById("main").innerHTML='<section class="panel"><div class="title">APP ERROR</div><div class="muted">'+String(e.message||e)+'</div></section>';}}
 boot();
 </script></body></html>
