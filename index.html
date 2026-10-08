@@ -341,6 +341,22 @@ function progress(){page="progress";document.getElementById("workoutDatePanel").
 function settings(){page="settings";document.getElementById("workoutDatePanel").style.display="none";setNav("settings");document.getElementById("routineTabs").innerHTML="";document.getElementById("main").innerHTML='<section class="panel"><div class="title">⚙️ Settings</div><p>왕빵궁둥이 · Pink Theme</p><p class="muted">Your workout data is stored on this device.</p></section>'}
 function setNav(p){var n=document.getElementsByClassName("nav"),i;for(i=0;i<n.length;i++)n[i].className="nav"+(n[i].getAttribute("data-page")===p?" on":"")}
 var cats=document.getElementsByClassName("cat"),ci;for(ci=0;ci<cats.length;ci++)cats[ci].onclick=function(){var c=this.getAttribute("data-cat");setCat(c);if(page==="home"){if(c==="Upper")current="Dumbbell Upper";else if(c==="Lower")current="Machine Lower";else if(c==="Core")current="Core";else if(c==="Rest"){var d=dateKey(new Date());if(!db.sessions)db.sessions={};db.sessions[d]={routine:"Rest",category:"Rest",time:new Date().getTime()};persist();alert("Rest day saved! 🍃");activeCat="Today"}home()}else if(page==="calendar")calendar();else if(page==="progress")progress()};var nav=document.getElementsByClassName("nav"),i;for(i=0;i<nav.length;i++)nav[i].onclick=function(){var p=this.getAttribute("data-page");if(p==="home")home();else if(p==="calendar")calendar();else if(p==="progress")progress();else settings()};
+function appendCoreFinishers(){
+ var names=Object.keys(routines);
+ names.forEach(function(name){
+  var exercises=routines[name],leg=null,reverse=null,rest=[];
+  exercises.forEach(function(ex){
+   var key=normalExercise(ex[1]);
+   if(key==="leg raise"){leg=ex;return}
+   if(key==="reverse crunch"){reverse=ex;return}
+   rest.push(ex);
+  });
+  if(!leg)leg=["✦","Leg Raise",3,"15"];
+  if(!reverse)reverse=["✦","Reverse Crunch",3,"15"];
+  routines[name]=rest.concat([leg,reverse]);
+ });
+}
+appendCoreFinishers();
 function boot(){try{var workoutDateInput=document.getElementById("workoutDate");workoutDateInput.value=selectedWorkoutDate;workoutDateInput.max=dateKey(new Date());var requested=new URLSearchParams(location.search).get("routine");if(lowerMachineSources.indexOf(requested)>=0)requested="Machine Lower";if(upperMachineSources.indexOf(requested)>=0)requested="Upper Machine";if(dumbbellUpperSources.indexOf(requested)>=0)requested="Dumbbell Upper";if(coreSources.indexOf(requested)>=0)requested="Core";if(requested&&routines[requested]){current=requested;activeCat=categoryOf(requested)}var now=new Date();document.getElementById("date").innerHTML="📅 "+now.getFullYear()+"."+pad(now.getMonth()+1)+"."+pad(now.getDate());home();}catch(e){document.getElementById("main").innerHTML='<section class="panel"><div class="title">APP ERROR</div><div class="muted">'+String(e.message||e)+'</div></section>';}}
 boot();
 </script></body></html>
