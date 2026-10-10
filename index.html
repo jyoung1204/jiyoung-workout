@@ -378,7 +378,7 @@ function appendCoreFinishers(){
    var normalized=normalExercise(ex[1]);
    if(normalized==="leg raise"){if(!leg)leg=ex;return}
    if(normalized==="reverse crunch"){if(!reverse)reverse=ex;return}
-   if(normalized==="hanging"){if(!hanging)hanging=ex;return}
+   if(normalized==="dead hang"||normalized==="hanging"){if(!hanging){hanging=ex.slice();hanging[1]="Hanging"}return}
    if(isCardio(ex)||normalized==="easy cardio"||normalized==="cardio"){if(!cardio)cardio=ex;return}
    rest.push(ex);
   });
