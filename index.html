@@ -372,18 +372,22 @@ function settings(){page="settings";document.getElementById("workoutDatePanel").
 function setNav(p){var n=document.getElementsByClassName("nav"),i;for(i=0;i<n.length;i++)n[i].className="nav"+(n[i].getAttribute("data-page")===p?" on":"")}
 var cats=document.getElementsByClassName("cat"),ci;for(ci=0;ci<cats.length;ci++)cats[ci].onclick=function(){var c=this.getAttribute("data-cat");setCat(c);if(page==="home"){if(c==="Upper")current="Dumbbell Upper";else if(c==="Lower")current="Machine Lower";else if(c==="Core")current="Core";else if(c==="Rest"){var d=dateKey(new Date());if(!db.sessions)db.sessions={};db.sessions[d]={routine:"Rest",category:"Rest",time:new Date().getTime()};persist();alert("Rest day saved! 🍃");activeCat="Today"}home()}else if(page==="calendar")calendar();else if(page==="progress")progress()};var nav=document.getElementsByClassName("nav"),i;for(i=0;i<nav.length;i++)nav[i].onclick=function(){var p=this.getAttribute("data-page");if(p==="home")home();else if(p==="calendar")calendar();else if(p==="progress")progress();else settings()};
 function appendCoreFinishers(){
- var names=Object.keys(routines);
- names.forEach(function(name){
-  var exercises=routines[name],leg=null,reverse=null,rest=[];
-  exercises.forEach(function(ex){
-   var key=normalExercise(ex[1]);
-   if(key==="leg raise"){leg=ex;return}
-   if(key==="reverse crunch"){reverse=ex;return}
+ Object.keys(routines).forEach(function(name){
+  var leg=null,reverse=null,hanging=null,cardio=null,rest=[];
+  routines[name].forEach(function(ex){
+   var normalized=normalExercise(ex[1]);
+   if(normalized==="leg raise"){if(!leg)leg=ex;return}
+   if(normalized==="reverse crunch"){if(!reverse)reverse=ex;return}
+   if(normalized==="hanging"){if(!hanging)hanging=ex;return}
+   if(isCardio(ex)||normalized==="easy cardio"||normalized==="cardio"){if(!cardio)cardio=ex;return}
    rest.push(ex);
   });
   if(!leg)leg=["✦","Leg Raise",3,"15"];
   if(!reverse)reverse=["✦","Reverse Crunch",3,"15"];
-  routines[name]=rest.concat([leg,reverse]);
+  if(!hanging)hanging=["✦","Hanging",3,"30 sec"];
+  if(!cardio)cardio=["♡","Easy Cardio",1,cardioMinutes(name)+" min","cardio"];
+  cardio=cardio.slice();cardio[4]="cardio";
+  routines[name]=rest.concat([leg,reverse,hanging,cardio]);
  });
 }
 appendCoreFinishers();
