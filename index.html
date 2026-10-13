@@ -362,7 +362,7 @@ var dateInput=document.getElementById("workoutDate");dateInput.onchange=function
 function share(){
  var a=routines[current],date=document.getElementById("workoutDate").value||dateKey(new Date());
  var indices=a.map(function(ex,i){return i}).filter(function(i){return !!record(i).done}).sort(function(i,j){return Number(isCardio(a[i]))-Number(isCardio(a[j]))});
- var rows=Math.max(1,indices.length),rowHeight=138,top=104,pad=18,width=1080;
+ var rows=Math.max(1,indices.length),rowHeight=126,top=104,pad=68,width=1080;
  var canvas=document.createElement("canvas");canvas.width=width;canvas.height=top+rows*rowHeight+120;
  var ctx=canvas.getContext("2d"),ink="#292929",line="#e6dde1";
  var background=ctx.createLinearGradient(0,0,0,canvas.height);background.addColorStop(0,"#fffdfd");background.addColorStop(1,"#fff1f6");
