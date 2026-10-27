@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+<title id="title">Single-leg leg press</title>
+<desc id="desc">A woman in pink workout clothes presses a leg press sled with one leg while seated securely in the machine.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff9fb"/><stop offset="1" stop-color="#fff0f5"/></linearGradient>
+  <linearGradient id="pink" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff82ad"/><stop offset="1" stop-color="#e93878"/></linearGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#59616d"/><stop offset=".55" stop-color="#aab0b8"/><stop offset="1" stop-color="#626a74"/></linearGradient>
+</defs>
+<rect width="600" height="600" rx="36" fill="url(#bg)"/>
+<circle cx="300" cy="300" r="238" fill="#fff" opacity=".58"/>
+<!-- frame and sled -->
+<path d="M84 480 443 113" fill="none" stroke="#d7dbe0" stroke-width="19" stroke-linecap="round"/>
+<path d="M110 498 468 133" fill="none" stroke="url(#metal)" stroke-width="12" stroke-linecap="round"/>
+<path d="M104 492 458 130" fill="none" stroke="#f9fafb" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+<path d="M104 492h220" fill="none" stroke="#68717b" stroke-width="18" stroke-linecap="round"/>
+<path d="m137 490 78-80" fill="none" stroke="#69727c" stroke-width="17" stroke-linecap="round"/>
+<!-- back pad and seat -->
+<path d="m186 370 66-72" fill="none" stroke="#343a43" stroke-width="41" stroke-linecap="round"/>
+<path d="m186 370 66-72" fill="none" stroke="#f18bb0" stroke-width="29" stroke-linecap="round"/>
+<path d="m228 385 91-2" fill="none" stroke="#343a43" stroke-width="34" stroke-linecap="round"/>
+<path d="m228 385 91-2" fill="none" stroke="#f18bb0" stroke-width="23" stroke-linecap="round"/>
+<!-- foot plate -->
+<g transform="rotate(-45 432 159)">
+  <rect x="398" y="127" width="68" height="18" rx="7" fill="#414852"/>
+  <rect x="402" y="131" width="60" height="5" rx="2.5" fill="#9ea5ad"/>
+  <path d="M410 151v20m14-20v20m14-20v20m14-20v20" stroke="#4e5660" stroke-width="5" stroke-linecap="round"/>
+</g>
+<!-- woman: hair and face -->
+<path d="M242 248c-8-35 14-62 44-61 28 1 44 25 35 51l-8 29-54 7z" fill="#342a31"/>
+<circle cx="277" cy="239" r="31" fill="#f2bd9e"/>
+<path d="M247 237c3-34 23-52 48-49 15 2 26 13 30 27-18-10-36-14-50-3-7 6-14 17-28 25z" fill="#342a31"/>
+<path d="M270 244q5 4 10 0" fill="none" stroke="#9b5d58" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="286" cy="234" r="2.3" fill="#49393a"/>
+<!-- torso in pink top, braced against backrest -->
+<path d="M259 269c-15 5-30 22-34 43l-12 51c-2 9 4 17 14 18l44 5c10 1 17-6 17-16l-1-59c0-18-9-36-28-42z" fill="url(#pink)" stroke="#d52f6c" stroke-width="3"/>
+<path d="m239 293 30 16m-44 24 49 5" stroke="#ffd2e0" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+<!-- bracing arm -->
+<path d="m253 291-34 46-20 13" fill="none" stroke="#f2bd9e" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="m198 350 13-10" stroke="#f2bd9e" stroke-width="11" stroke-linecap="round"/>
+<!-- pelvis -->
+<path d="M223 360c17-12 48-10 64 3l7 21-57 19-20-20z" fill="#e93878"/>
+<!-- working leg: one leg extended to the sled -->
+<path d="M260 370c25-10 51-22 78-39 13-8 23-19 33-31" fill="none" stroke="#ef6e9e" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M260 370c25-10 51-22 78-39 13-8 23-19 33-31" fill="none" stroke="#ffb5cb" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+<circle cx="371" cy="298" r="5" fill="#db3973"/>
+<path d="M371 298c15-19 27-38 43-54" fill="none" stroke="#f2bd9e" stroke-width="19" stroke-linecap="round"/>
+<path d="m405 250 23-9c8-3 16 1 18 8 2 7-3 13-11 15l-23 6" fill="#f2bd9e" stroke="#d5957a" stroke-width="2"/>
+<!-- nonworking leg bent and relaxed -->
+<path d="M239 383c21 8 36 23 46 40 5 9 6 19 2 30" fill="none" stroke="#ef6e9e" stroke-width="31" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="288" cy="423" r="5" fill="#db3973"/>
+<path d="m287 451 2 26" fill="none" stroke="#f2bd9e" stroke-width="17" stroke-linecap="round"/>
+<path d="M279 478h33" stroke="#f2bd9e" stroke-width="14" stroke-linecap="round"/>
+<!-- handle / frame details -->
+<path d="m177 393-17 20m144-65 29 3" fill="none" stroke="#58616b" stroke-width="9" stroke-linecap="round"/>
+<circle cx="188" cy="400" r="8" fill="#333943"/>
+<!-- motion cue for single working leg -->
+<path d="M422 317c23-16 37-37 42-61" fill="none" stroke="#df3b76" stroke-width="5" stroke-linecap="round" stroke-dasharray="7 10"/>
+<path d="m453 263 12-13 7 16" fill="none" stroke="#df3b76" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="526" width="148" height="38" rx="19" fill="#f9d5e2"/>
+<text x="106" y="551" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#a72e5b">ONE LEG PRESS</text>
+</svg>
