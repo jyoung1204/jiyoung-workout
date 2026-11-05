@@ -599,7 +599,7 @@ function appendCoreFinishers(){
   if(!hyperextension)hyperextension=["✦","Hyperextension",3,"10-12"];
   if(!cardio)cardio=["♡","Easy Cardio",1,cardioMinutes(name)+" min","cardio"];
   cardio=cardio.slice();cardio[4]="cardio";
-  routines[name]=rest.concat([leg,reverse,hanging,hyperextension,cardio]);
+  routines[name]=rest.concat([leg,reverse,hyperextension,hanging,cardio]);
  });
 }
 appendCoreFinishers();
